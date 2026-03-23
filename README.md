@@ -70,3 +70,19 @@ ssh-keygen -R [<HOST_IP>]:2222
 ## Base Image
 
 [`rockylinux:9.3.20231119`](https://hub.docker.com/_/rockylinux)
+
+You can run 
+
+```bash
+docker run -d --name rockylinux -p 2222:22 rukasu/rockylinux:1.0 sleep infinity
+
+docker exec -it rockylinux /bin/bash
+```
+
+OR
+
+```bash
+docker run -d --name rocky-docker -p 2222:22 -v /var/run/docker.sock:/var/run/docker.sock rukasu/rockylinux:1.1-docker sleep infinity
+
+docker exec -it rocky-docker /bin/bash
+```
